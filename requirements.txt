@@ -23,7 +23,7 @@ pyOpenSSL==23.2.0
 pyOpenSSL==23.2.0
 typing_extensions==4.7.1
 Werkzeug==2.3.7
-wincertstore==0.2.1
+wincertstore==0.2
 WTForms==3.0.1
 xmlrpclib==1.0.1
 zipp==3.11.0
