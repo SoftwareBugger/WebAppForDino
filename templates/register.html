@@ -2,7 +2,7 @@
 {% block content %}
 <body>
 <h1>Register to be a member with us!</h1>
-<form class="login", action="{{ url_for('register') }}", method="POST", enctype="multipart/form-data">
+<form class="login", action="{{ url_for('register', _scheme='https') }}", method="POST", enctype="multipart/form-data">
     {{ form.hidden_tag() }}
     <table>
         <tr><th>{{ form.username.label }}</th><td>{{ form.username()}}</td></tr>

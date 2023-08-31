@@ -2,7 +2,7 @@
 {% block content %}
 <body>
 <h1>Welcome back!</h1>
-<form class="login", action="{{ url_for('login') }}", method="POST", enctype="multipart/form-data">
+<form class="login", action="{{ url_for('login', _scheme='https') }}", method="POST", enctype="multipart/form-data">
     {{ form.hidden_tag() }}
     <table>
         <tr><th>{{ form.email.label }}</th><td>{{ form.email()}}</td></tr>

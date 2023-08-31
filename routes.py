@@ -151,7 +151,7 @@ def add_review_on_item(curr_item_id, username):
         return render_template("reviews_on_items.html", Brand = this_brand, review_list = review.query.filter(review.item_id == curr_item_id).all(), Item = item.query.get(curr_item_id), form = ItemReviewForm(), user = user)
     else:
         # for now, the scheme can only be http
-        return redirect(url_for("index", _external = True, _scheme = 'http'))
+        return redirect(url_for("index", _external = True, _scheme = 'https'))
     ## Redirect to brands route function
 
 # registration route
@@ -166,7 +166,7 @@ def register():
        user.isAdministrator = False
        db.session.commit()
        login_user(user)
-       return redirect(url_for('user', username = user.username, _external=True, _scheme='http'))
+       return redirect(url_for('user', username = user.username, _external=True, _scheme='https'))
     except:
        flash("This email or username has been used, please use a new one")
        return render_template('register.html', title='Register', form=form)
@@ -181,10 +181,10 @@ def login():
     if user and user.check_password(form.password.data):
       login_user(user, remember=form.remember.data)
       next_page = request.args.get('next')
-      return redirect(next_page) if next_page else redirect(url_for('user', username = user.username, _external=True, _scheme='http'))
+      return redirect(next_page) if next_page else redirect(url_for('user', username = user.username, _external=True, _scheme='https'))
     else:
       flash("Username unfound or incorrect password")
-      return redirect(url_for('login', _external=True, _scheme='http'))
+      return redirect(url_for('login', _external=True, _scheme='https'))
   elif form.is_submitted():
      flash("Input format incorrect, please enter email and password")
   return render_template('login.html', form=form)
@@ -231,5 +231,5 @@ def profile(username):
 @login_manager.unauthorized_handler
 def unauthorized():
     # do stuff
-    return redirect(url_for('login', _external=True, _scheme='http'))
+    return redirect(url_for('login', _external=True, _scheme='https'))
 

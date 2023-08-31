@@ -37,7 +37,7 @@
 {% if user %}
 <h2>Add new reviews</h2>
 <div>
-    <form class="review", action="{{ url_for('add_review_on_item', curr_item_id=Item.id, username = user.username) }}", method="POST", enctype="multipart/form-data">
+    <form class="review", action="{{ url_for('add_review_on_item', curr_item_id=Item.id, username = user.username, _scheme='https') }}", method="POST", enctype="multipart/form-data">
         {{ form.hidden_tag() }}
         <table>
             <thead>
@@ -62,7 +62,7 @@
 <br>
 <br>
 {% if user %}
-    <a class="jump", href="{{ url_for('brands', brand_name = Brand.name, username = user.username, _external = True)}}"><button>Back to brand page</button></a>
+    <a class="jump", href="{{ url_for('brands', brand_name = Brand.name, username = user.username, _external = True, _scheme='https')}}"><button>Back to brand page</button></a>
 {% else %}
     <a class="jump", href="/{{Brand.name}}"><button>Back to brand page</button></a>
 {% endif %}

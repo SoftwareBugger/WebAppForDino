@@ -29,7 +29,7 @@
                     <td class="display", width="500">{{ review.description }}</td>
                     <td class="display">{{ review.rating }}</td>
                     <td class="display">{{ review.reviewer.username }}</td>
-                    <td class="display"><a href="{{ url_for('delete', review_id = review.id, username = review.reviewer.username)}}"><button>Delete review</button></a></td>
+                    <td class="display"><a href="{{ url_for('delete', review_id = review.id, username = review.reviewer.username, _scheme='https')}}"><button>Delete review</button></a></td>
                 </tr>
             {% endfor %}
             </tbody>

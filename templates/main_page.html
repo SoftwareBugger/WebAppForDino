@@ -21,7 +21,7 @@ We are not a big community but we want everyone to find where they belong!</p>
     {% if brand|length != 0%}
     {% for b in brand %}
         <div>
-            <a class="brands" href="{{ url_for('brands_browse', brand_name = b.name) }}">
+            <a class="brands" href="{{ url_for('brands_browse', brand_name = b.name, _scheme='https') }}">
                 <img src = "{{ b.image }}", alt="{{ b.image }}", height="200", width="300">
                 <br>
                 {{b.name}}

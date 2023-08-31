@@ -11,8 +11,8 @@ We are not a big community but we want everyone to find where they belong!</p>
 <table>
     <thead>
         <tr>
-            <th><a class="jump" href="{{ url_for('profile', username = user.username)}}"><button class="back">Profile</button></a></th>
-            <th><a class="jump" href="{{ url_for('logout')}}"><button class="back">Logout</button></a></th>
+            <th><a class="jump" href="{{ url_for('profile', username = user.username, _scheme='https')}}"><button class="back">Profile</button></a></th>
+            <th><a class="jump" href="{{ url_for('logout', _scheme='https')}}"><button class="back">Logout</button></a></th>
         </tr>
     </thead>
 </table>
@@ -33,7 +33,7 @@ We are not a big community but we want everyone to find where they belong!</p>
 </div>
 <p>*All pictures above come from the internet, I will delete them if any violation of rights occurs!</p>
 <br>
-<a class="jump" href="{{ url_for('admin', username = user.username) }}"><button class="back">To the administrator's page</button></a>
+<a class="jump" href="{{ url_for('admin', username = user.username, _scheme='https') }}"><button class="back">To the administrator's page</button></a>
 <br>
 <br>
 {% with messages = get_flashed_messages() %}
