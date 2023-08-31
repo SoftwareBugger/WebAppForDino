@@ -1,0 +1,125 @@
+body {
+    /*backrgound color as a linear smooth transition and not repeat in the website*/
+    /* fill out the entire page
+    background-image: url("bg.jpeg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    cover the webpage with the picture*/
+
+    background: linear-gradient(to right,lightgreen, lightblue);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+
+}
+p.intro, ul {
+    color: black;
+    background: linear-gradient(to right,lightgreen, lightblue);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    text-decoration: unset;
+
+    
+    border-style:outset;
+    border-radius: 10px;
+    border-color:blue;
+    padding: 10px;
+}
+h1, h2 {
+    background: linear-gradient(to right,lightgreen, lightblue);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: blue;
+}
+form.review, div.display {
+    border-style:outset;
+    border-color:blue;
+    padding: 10px;
+    text-align: center;
+    border-collapse: collapse;
+    border-radius: 10px;
+}
+
+div.profile {
+    border-style:outset;
+    border-color:blue;
+    padding: 10px;
+    text-align: left;
+    border-collapse: collapse;
+    border-radius: 10px;
+}
+
+form.login {
+    color: blue;
+
+    border-style:outset;
+    border-color:blue;
+    padding: 20px;
+    text-align: center;
+    border-collapse: collapse;
+    border-radius: 10px;
+
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    text-decoration: unset;
+}
+
+div.grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    border-style:outset;
+    border-radius: 10px;
+    border-color:blue;
+    border-collapse: collapse;
+    text-align: center;
+    padding: 20px;
+    gap: 10px;
+}
+
+a.brands {
+    color: blue;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    text-decoration: unset;
+}
+
+button {
+    border:2px solid blue;
+    border-radius: 10px;
+    color: blue;
+    background-color: transparent;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 25px;
+    text-decoration: unset;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    padding: 16px 32px;
+}
+
+button:hover {
+    border:2px solid blue;
+    border-radius: 10px;
+    color: lightgreen;
+    background-color: blue;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 25px;
+    text-decoration: unset;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    padding: 16px 32px;
+}
+

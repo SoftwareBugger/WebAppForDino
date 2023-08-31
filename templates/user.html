@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block content %}
+<body>
+    <h1>Life In The Past</h1>
+<div>
+    <p class="intro">This is a website for paleontology nuts and figurine collectors to share ideas and connect with each other! 
+We are not a big community but we want everyone to find where they belong!</p>
+<br>
+</div>
+<h2>Hi, {{ user.username }}</h2>
+<table>
+    <thead>
+        <tr>
+            <th><a class="jump" href="{{ url_for('profile', username = user.username)}}"><button class="back">Profile</button></a></th>
+            <th><a class="jump" href="{{ url_for('logout')}}"><button class="back">Logout</button></a></th>
+        </tr>
+    </thead>
+</table>
+<br>
+<h2>Current brands</h2>
+<div class="grid-container">
+    {% if brand|length != 0%}
+    {% for b in brand %}
+        <div>
+            <a class="brands" href="{{ url_for('brands', brand_name = b.name, username = user.username)}}">
+                <img src = "../{{ b.image }}", alt="../{{ b.image }}", height="200", width="300">
+                <br>
+                {{b.name}}
+            </a>
+        </div>
+    {% endfor %}
+    {% endif %}
+</div>
+<p>*All pictures above come from the internet, I will delete them if any violation of rights occurs!</p>
+<br>
+<a class="jump" href="{{ url_for('admin', username = user.username) }}"><button class="back">To the administrator's page</button></a>
+<br>
+<br>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    {% for message in messages %}
+      <h2>{{ message }}</h2>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+</body>
+{% endblock %}

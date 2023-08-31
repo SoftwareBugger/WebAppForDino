@@ -1,0 +1,42 @@
+{% extends "base2.html" %}
+{% block content %}
+<body>
+    <h1>{{ user.username }}</h1>
+    <div class="profile">
+        <table class="intro">
+            <tr><th>Email: </th><td>{{ user.email }}</td></tr>
+            <tr><th>Date joined: </th><td>{{ user.joined_at }}</th></tr>
+            <tr><th>Review number:   </th><td>{{ all_reviews | length }}</th></tr>
+        </table>
+    </div>
+    <br>
+    <br>
+    <div class="display">
+        <table class="display">
+            <thead>
+                <tr>
+                    <th class="display", width="300">Image</th>
+                    <th class="display", width="300">Description</th>
+                    <th class="display", width="300">Rating</th>
+                    <th class="display", width="300">Author</th>
+                    <th class="display", width="300">Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for review in all_reviews %}
+                <tr>
+                    <td class="display"><image src="../../{{ review.image }}", height="200", width="300"></image></td>
+                    <td class="display", width="500">{{ review.description }}</td>
+                    <td class="display">{{ review.rating }}</td>
+                    <td class="display">{{ review.reviewer.username }}</td>
+                    <td class="display"><a href="{{ url_for('delete', review_id = review.id, username = review.reviewer.username)}}"><button>Delete review</button></a></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <br>
+    <br>
+    <a class="jump" href="/user/{{ user.username }}"><button class="back">Back to main page</button></a>
+</body>
+{% endblock %}

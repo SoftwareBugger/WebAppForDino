@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block content %}
+<body>
+    <h1>Administrator Page</h1>
+<div>
+    <p class="intro">
+        This page is for administrator to add a new brand into our forum. All great brands are welcome!
+    </p>
+</div>
+<br>
+<h2>Add a new brand to our main page!</h2>
+<div>
+    <form class="review", action="{{ url_for('adminPage', username = username) }}", method="POST", enctype="multipart/form-data">
+        {{ form.hidden_tag() }}
+        <table class="b">
+            <thead>
+                <tr>
+                    <th width = 300>{{ form.name.label }}</th>
+                    <th width = 300>{{ form.file.label }}</th>
+                    <th width = 300>{{ form.description.label }}</th>
+                    <th width = 300>Create the new brand</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td width = 300>{{ form.name() }}</td>
+                    <td width = 300>{{ form.file() }}</td>
+                    <td width = 300>{{ form.description() }}</td>
+                    <td width = 300>{{ form.submit() }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+</div>
+<br>
+<br>
+    <a class="jump" href="{{ url_for('user', username = username) }}"><button class="back">Back to main page</button></a>
+<br>
+<br>
+</body>
+{% endblock %}

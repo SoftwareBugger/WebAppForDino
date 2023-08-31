@@ -1,0 +1,68 @@
+{% extends "base2.html" %}
+{% block content %}
+<body class="comments">
+    <h1>{{ Brand.name | upper }}</h1>
+    <p class="intro">{{ Brand.description }}</p>
+    <br>
+    <div>
+        {% if item_list|length != 0 %}
+        <h2>Current releases</h2>
+        <div class="grid-container">
+            {% for item in item_list %}
+                <div>
+                    {% if user %}
+                    <a class="brands" href="{{ url_for('items', item_name = item.name, brand_name = Brand.name, username = user.username)}}">
+                        <img src = "../../{{ item.icon }}", alt="../../{{ item.icon }}", height="200", width="300">
+                        <br>
+                        {{item.name}}
+                    </a>
+                    {% else %}
+                    <a class="brands" href="{{ url_for('items_browse', item_name = item.name, brand_name = Brand.name)}}">
+                        <img src = "../../{{ item.icon }}", alt="../../{{ item.icon }}", height="200", width="300">
+                        <br>
+                        {{item.name}}
+                    </a>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+        <br>
+        <br>
+        {% endif %}
+        {% if user %}
+        <h2>Add your new review on a new release!</h2>
+        <form class="review", action="{{ url_for('add_review', curr_brand_id=Brand.id, username = user.username) }}", method="POST", enctype="multipart/form-data">
+            {{ form.hidden_tag() }}
+            <table>
+                <thead>
+                    <th width="300">{{ form.name.label }}</th>
+                    <th width="300">{{ form.description.label }}</th>
+                    <th width="300">{{ form.rating.label }}</th>
+                    <th width="300">{{ form.file.label }}</th>
+                    <th width="300">Submit your review</th>
+                </thead>
+                <tbody>
+                    <td>{{ form.name() }}</td>
+                    <td>{{ form.description() }}</td>
+                    <td>{% for button in form.rating %}
+                        <div>{{ button() }}{{ button.label }}</div>
+                        {% endfor %}
+                    </td>
+                    <td>{{ form.file() }}</td>
+                    <td>{{ form.submit() }}</td>
+                </tbody>
+            </table>
+        </form>
+        {% endif %}
+    </div>
+    <br>
+    <br>
+    {% if not user %}
+    <a class="jump" href="/"><button class="back">Back to main page</button></a>
+    {% else %}
+    <a class="jump" href="/user/{{ user.username }}"><button class="back">Back to main page</button></a>
+    {% endif %}
+<br>
+<br>
+</body>
+{% endblock %}

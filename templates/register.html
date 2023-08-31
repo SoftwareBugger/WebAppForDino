@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+<body>
+<h1>Register to be a member with us!</h1>
+<form class="login", action="{{ url_for('register') }}", method="POST", enctype="multipart/form-data">
+    {{ form.hidden_tag() }}
+    <table>
+        <tr><th>{{ form.username.label }}</th><td>{{ form.username()}}</td></tr>
+        <tr><th>{{ form.email.label }}</th><td>{{ form.email()}}</td></tr>
+        <tr><th>{{ form.password.label }}</th><td>{{ form.password()}}</td></tr>
+        <tr><th>{{ form.password2.label }}</th><td>{{ form.password2()}}</td></tr>
+        <tr><th>{{ form.submit.label }}</th><td>{{ form.submit()}}</td></tr>
+    </table>
+</form>
+<br>
+<br>
+<a class="jump", href="/"><button>Back to main page</button></a>
+<br>
+<br>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    {% for message in messages %}
+      <h2>{{ message }}</h2>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+</body>
+{% endblock %}

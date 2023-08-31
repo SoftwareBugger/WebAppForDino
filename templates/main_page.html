@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block content %}
+<body>
+    <h1>Life In The Past</h1>
+<div>
+    <p class="intro">This is a website for paleontology nuts and figurine collectors to share ideas and connect with each other! 
+We are not a big community but we want everyone to find where they belong!</p>
+<br>
+</div>
+<table>
+    <thead>
+        <tr>
+            <th><a class="jump" href="/login"><button class="back">Login</button></a></th>
+            <th><a class="jump" href="/register"><button class="back">New here? Register an account!</button></a></th>
+        </tr>
+    </thead>
+</table>
+<br>
+<h2>Current brands</h2>
+<div class="grid-container">
+    {% if brand|length != 0%}
+    {% for b in brand %}
+        <div>
+            <a class="brands" href="{{ url_for('brands_browse', brand_name = b.name) }}">
+                <img src = "{{ b.image }}", alt="{{ b.image }}", height="200", width="300">
+                <br>
+                {{b.name}}
+            </a>
+        </div>
+    {% endfor %}
+    {% endif %}
+</div>
+<p>*All pictures above come from the internet, I will delete them if any violation of rights occurs!</p>
+<br>
+<br>
+</body>
+{% endblock %}
