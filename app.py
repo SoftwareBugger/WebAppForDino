@@ -74,4 +74,3 @@ class brand(db.Model):
 
 db.create_all()
 import routes
-port = int(os.environ.get("PORT"))
