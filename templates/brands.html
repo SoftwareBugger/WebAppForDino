@@ -11,13 +11,13 @@
             {% for item in item_list %}
                 <div>
                     {% if user %}
-                    <a class="brands" href="{{ url_for('items', item_name = item.name, brand_name = Brand.name, username = user.username)}}">
+                    <a class="brands" href="{{ url_for('items', item_name = item.name, brand_name = Brand.name, username = user.username, _scheme='https')}}">
                         <img src = "../../{{ item.icon }}", alt="../../{{ item.icon }}", height="200", width="300">
                         <br>
                         {{item.name}}
                     </a>
                     {% else %}
-                    <a class="brands" href="{{ url_for('items_browse', item_name = item.name, brand_name = Brand.name)}}">
+                    <a class="brands" href="{{ url_for('items_browse', item_name = item.name, brand_name = Brand.name, _scheme='https')}}">
                         <img src = "../../{{ item.icon }}", alt="../../{{ item.icon }}", height="200", width="300">
                         <br>
                         {{item.name}}
@@ -31,7 +31,7 @@
         {% endif %}
         {% if user %}
         <h2>Add your new review on a new release!</h2>
-        <form class="review", action="{{ url_for('add_review', curr_brand_id=Brand.id, username = user.username) }}", method="POST", enctype="multipart/form-data">
+        <form class="review", action="{{ url_for('add_review', curr_brand_id=Brand.id, username = user.username, _scheme='https') }}", method="POST", enctype="multipart/form-data">
             {{ form.hidden_tag() }}
             <table>
                 <thead>
