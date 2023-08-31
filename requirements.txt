@@ -27,3 +27,4 @@ wincertstore==0.2
 WTForms==3.0.1
 zipp==3.11.0
 gunicorn==21.2.0
+email_validator==*
