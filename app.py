@@ -5,6 +5,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 from flask_login import UserMixin, LoginManager, login_required, login_user, current_user
 from os import environ
+import os
 
 UPLOAD_FOLDER = 'static'
 
@@ -73,3 +74,5 @@ class brand(db.Model):
 
 db.create_all()
 import routes
+port = int(os.environ.get("PORT", 5000))
+app.run(host="0.0.0.0", port=port)
